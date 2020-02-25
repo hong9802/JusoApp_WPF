@@ -17,7 +17,6 @@ namespace JusoApp_WPF
             for (int i = 0; i < requestHandler.jusoarray.Length; i++)
             {
                 data.Add(requestHandler.jusoarray[i] + "\n" + requestHandler.jusolndn[i]);
-
             }
             return data;
         }
@@ -41,9 +40,12 @@ namespace JusoApp_WPF
         private void Jusolist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = jusolist.SelectedIndex;
-            url = "http://www.juso.go.kr/search/getAddrJuminDetailRenew.do?bdMgtSn=" + requestHandler.jusobdMgtSn[index];
-            requestHandler.send_RequestAsync(url);
-            MessageBox.Show("지번 주소 : " + requestHandler.jusolndn[index] + "\n관할 동사무소 : " + requestHandler.KorNM + "\n전화번호 : " + requestHandler.telCn, "도로명 주소 : " + requestHandler.jusoarray[index]);
+            if (index > -1)
+            {
+                url = "http://www.juso.go.kr/search/getAddrJuminDetailRenew.do?bdMgtSn=" + requestHandler.jusobdMgtSn[index];
+                requestHandler.send_RequestAsync(url);
+                MessageBox.Show("지번 주소 : " + requestHandler.jusolndn[index] + "\n관할 동사무소 : " + requestHandler.KorNM + "\n전화번호 : " + requestHandler.telCn, "도로명 주소 : " + requestHandler.jusoarray[index]);
+            }
         }
     }
     

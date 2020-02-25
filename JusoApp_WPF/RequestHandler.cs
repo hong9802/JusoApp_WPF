@@ -17,6 +17,12 @@ namespace JusoApp_WPF
         {
             return this.resdata;
         }
+        private void clearData()
+        {
+            jusoarray = new string[5];
+            jusobdMgtSn = new string[5];
+            jusolndn = new string[5];
+        }
         public void send_RequestAsync(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -32,7 +38,7 @@ namespace JusoApp_WPF
                         this.resdata = sr.ReadToEnd();
                     }
                     if (url.Contains("getAddrJuminDetailRenew")) getCn();
-                    else convertJuso();
+                    else { clearData(); convertJuso(); }
                 }
             } catch (Exception e)
             {
