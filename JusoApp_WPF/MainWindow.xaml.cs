@@ -44,7 +44,17 @@ namespace JusoApp_WPF
             {
                 url = "http://www.juso.go.kr/search/getAddrJuminDetailRenew.do?bdMgtSn=" + requestHandler.jusobdMgtSn[index];
                 requestHandler.send_RequestAsync(url);
-                MessageBox.Show("지번 주소 : " + requestHandler.jusolndn[index] + "\n관할 동사무소 : " + requestHandler.KorNM + "\n전화번호 : " + requestHandler.telCn, "도로명 주소 : " + requestHandler.jusoarray[index]);
+                MessageBoxResult result = MessageBox.Show("지번 주소 : " + requestHandler.jusolndn[index] + "\n관할 동사무소 : " + requestHandler.KorNM + "\n전화번호 : " + requestHandler.telCn, "도로명 주소 : " + requestHandler.jusoarray[index], MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        url = requestHandler.jusoarray[index];
+                        MessageBox.Show("복사했습니다.", url);
+                        Clipboard.SetText(url);
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
     }
