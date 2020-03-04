@@ -65,6 +65,9 @@ namespace JusoApp_WPF
                 case System.Windows.Input.Key.Return:
                     Search_Click(this, e);
                     break;
+                case System.Windows.Input.Key.Escape:
+                    jusoinfo.Text = "";
+                    break;
             }
         }
     }
