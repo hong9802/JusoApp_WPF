@@ -57,6 +57,16 @@ namespace JusoApp_WPF
                 }
             }
         }
+
+        private void onKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case System.Windows.Input.Key.Return:
+                    Search_Click(this, e);
+                    break;
+            }
+        }
     }
     
 }

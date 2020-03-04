@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JusoApp_WPF"
         mc:Ignorable="d"
-        Title="JusoAPP" Height="450" Width="800">
+        Title="JusoAPP" Height="450" Width="800" KeyDown="onKeyDown">
     <Grid>
         <TextBox x:Name="jusoinfo" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="692" TextChanged="Jusoinfo_TextChanged"/>
         <Button x:Name="Search" Content="Search" HorizontalAlignment="Left" Margin="707,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Search_Click"/>
